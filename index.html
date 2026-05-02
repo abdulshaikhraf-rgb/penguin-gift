@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Favorite Pagalo 🐧</title>
+    <style>
+        body {
+            margin: 0;
+            background: radial-gradient(circle, #fff5f7 0%, #ffdee5 100%);
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .gift-box {
+            font-size: 120px;
+            cursor: pointer;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .gift-box:hover { transform: scale(1.2) rotate(10deg); }
+        
+        .main-container {
+            display: none;
+            width: 90%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(255, 77, 109, 0.3);
+            border: 2px solid #ff4d6d;
+            text-align: center;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .photo-frame {
+            width: 100%;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+        h1 { color: #ff4d6d; font-size: 22px; margin-bottom: 10px; }
+        .text-msg { color: #555; line-height: 1.5; font-size: 14px; text-align: left; }
+
+        @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Sparkle effect */
+        .sparkle { position: absolute; pointer-events: none; animation: fly 2s linear infinite; }
+        @keyframes fly { 0% { opacity: 1; } 100% { transform: translate(100px, -100px); opacity: 0; } }
+    </style>
+</head>
+<body>
+
+    <div id="gift" class="gift-box" onclick="reveal()">🎁</div>
+
+    <div id="content" class="main-container">
+        <h1>Happy Birthday, Boni Penguin! 🐧✨</h1>
+        <div class="photo-frame">
+            <img src="mypic.jpg" alt="Pagal">
+        </div>
+        <div class="text-msg">
+            Ehehe yayay finally wo din agia! 😭 Wese toh ap poori <b>pagalo</b> ho aur mera dimaag khati rehti ho 😋 lekin apka kiddo pan aur penguin ki tarah chalna mujhy boht acha lagta hai🤌🏻❤️.<br><br>
+            Hamesha aisi hi hasti rehna, wrna <b>bakra</b> sa takr lagwaonga! 🐐💥
+        </div>
+        <button style="margin-top:20px; border:none; background:#ff4d6d; color:white; padding:10px 25px; border-radius:20px; cursor:pointer;" onclick="alert('I Love You My Little Bachu! ❤️')">Click Me!</button>
+    </div>
+
+    <script>
+        function reveal() {
+            document.getElementById('gift').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+            createSparkles();
+        }
+        function createSparkles() {
+            for(let i=0; i<30; i++) {
+                let s = document.createElement('div');
+                s.innerHTML = '✨';
+                s.className = 'sparkle';
+                s.style.left = Math.random() * 100 + 'vw';
+                s.style.top = Math.random() * 100 + 'vh';
+                document.body.appendChild(s);
+            }
+        }
+    </script>
+</body>
+</html>
